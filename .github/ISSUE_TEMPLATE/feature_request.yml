@@ -1,0 +1,10 @@
+name: Feature request
+description: Propose a feature (describe the problem first)
+body:
+  - type: textarea
+    id: problem
+    attributes: { label: What are you trying to do?, description: "Include what you use today and why it falls short." }
+    validations: { required: true }
+  - type: textarea
+    id: idea
+    attributes: { label: Proposed API (optional) }

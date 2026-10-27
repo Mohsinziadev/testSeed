@@ -1,0 +1,7 @@
+dist
+node_modules
+coverage
+*.tgz
+.DS_Store
+package-lock.json
+docs/MARKET-RESEARCH.md

@@ -1,0 +1,18 @@
+name: Bug report
+description: Something produced wrong, invalid or non-reproducible data
+body:
+  - type: input
+    id: version
+    attributes: { label: testseed version, description: "Output of `npm ls testseed`" }
+    validations: { required: true }
+  - type: input
+    id: seed
+    attributes: { label: Seed, description: "The seed from the error message or report (`error.seed`, `report.reproduce`)" }
+  - type: textarea
+    id: repro
+    attributes: { label: Minimal reproduction, description: "Factory/schema + the call. Please do not paste real customer data." }
+    validations: { required: true }
+  - type: textarea
+    id: expected
+    attributes: { label: Expected vs actual }
+    validations: { required: true }

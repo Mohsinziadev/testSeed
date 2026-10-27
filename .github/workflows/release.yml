@@ -1,0 +1,25 @@
+# Manual release. Requires a human to trigger it AND to approve the `npm-publish` environment
+# (configure required reviewers under Settings -> Environments). Uses npm provenance via OIDC.
+name: Release
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run: { description: "Dry run (do not publish)", type: boolean, default: true }
+permissions: { contents: read }
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: npm-publish
+    permissions: { contents: read, id-token: write }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, registry-url: "https://registry.npmjs.org", cache: npm }
+      - run: npm ci
+      - run: npm run check
+      - run: npm run check:package
+      - if: ${{ inputs.dry_run }}
+        run: npm publish --dry-run --provenance --access public
+      - if: ${{ !inputs.dry_run }}
+        run: npm publish --provenance --access public
+        env: { NODE_AUTH_TOKEN: "${{ secrets.NPM_TOKEN }}" }
