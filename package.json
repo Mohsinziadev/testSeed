@@ -1,5 +1,5 @@
 {
-  "name": "@mohsinzia/testseed",
+  "name": "seedset",
   "version": "0.1.0",
   "description": "Deterministic, schema-aware, relational test data and edge cases for TypeScript and JavaScript. Zero runtime dependencies.",
   "keywords": [
@@ -17,7 +17,7 @@
   ],
   "license": "MIT",
   "author": "Mohsin Zia <mohsinziadev@gmail.com>",
-  "homepage": "https://www.m2toolkit.com/npm-packages/testseed",
+  "homepage": "https://www.m2toolkit.com/npm-packages/seedset",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Mohsinziadev/testSeed.git"

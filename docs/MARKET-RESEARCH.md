@@ -9,9 +9,9 @@ limited to what each project documents about itself, not user-reported bugs.
 
 | Check | Result |
 | --- | --- |
-| npm `testseed` | `404 Not Found` on 2026-10-27 → name appears available. Availability can change before publish; re-run `npm view testseed`. |
+| npm `seedset` | `404 Not Found` on 2026-10-27 → name appears available. Availability can change before publish; re-run `npm view seedset`. |
 | npm `test-seed` | Exists as a `0.0.1-security` placeholder (npm security holding package). npm's similarity rule could reject `testseed` for being too close to `test-seed`. **Unknown until you try to publish** (`npm publish --dry-run` does not check this). |
-| Trademark | A web search found one listing, "TestSeed", described as a web-based deterministic dataset generator for API/CI use (PeerPush, dated 2026-02-08, marked "site offline"). No trademark registrations were found, but **no USPTO/WIPO/EUIPO search was run** — that needs a human with database access. Treat the name as provisional. |
+| Trademark | A web search found one listing, "Seedset", described as a web-based deterministic dataset generator for API/CI use (PeerPush, dated 2026-02-08, marked "site offline"). No trademark registrations were found, but **no USPTO/WIPO/EUIPO search was run** — that needs a human with database access. Treat the name as provisional. |
 
 ## Competitors
 
@@ -39,7 +39,7 @@ limited to what each project documents about itself, not user-reported bugs.
   edge-case tool; it is a value source. 2.9 MB unpacked (all locales).
 - **json-schema-faker** — zero production dependencies, deterministic via seeded Mulberry32 (default seed `1`), supports 2019-09/2020-12
   keywords including `allOf/anyOf/oneOf/not/if-then-else`, `pattern` (regex AST generator) and `$ref` with cycle handling. Faker/Chance are optional extensions.
-  It is a strong, **mature competitor for JSON-Schema-only generation** and supports more keywords than TestSeed does. No relational support, no edge-case/invalid-input mode **(not verified: absence not confirmed in code)**.
+  It is a strong, **mature competitor for JSON-Schema-only generation** and supports more keywords than Seedset does. No relational support, no edge-case/invalid-input mode **(not verified: absence not confirmed in code)**.
 - **@anatine/zod-mock** — generates from Zod via Faker; key-name matching heuristics; supports `seed`. README lists unsupported types: `ZodAny, ZodDefault,
   ZodFunction, ZodIntersection, ZodMap, ZodPromise, ZodSet, ZodTuple, ZodUnion, ZodUnknown`. Faker is a peer dependency; supported Zod versions are not stated on the README **(Zod 4 compatibility not verified)**.
 - **@mswjs/data** — "schema-based fixtures" with relations (Drizzle-inspired) and Standard Schema support per its README. Docs page fetched did not detail
@@ -66,24 +66,24 @@ limited to what each project documents about itself, not user-reported bugs.
 
 ## Features that should NOT be built (already solved well)
 
-- A huge multi-locale vocabulary (Faker). TestSeed ships 173 short synthetic vocabulary entries on purpose and documents how to plug in Faker values inside a field function.
-- Property-based testing with shrinking (fast-check). TestSeed's edge cases are fixed, labelled fixtures, not a property-testing engine.
-- Full JSON Schema coverage including `pattern`, `allOf`, `oneOf`, `if/then/else` (json-schema-faker). TestSeed rejects these with a precise error instead.
-- Validation (Zod and friends). TestSeed *consumes* validators through Standard Schema and Zod → JSON Schema.
+- A huge multi-locale vocabulary (Faker). Seedset ships 173 short synthetic vocabulary entries on purpose and documents how to plug in Faker values inside a field function.
+- Property-based testing with shrinking (fast-check). Seedset's edge cases are fixed, labelled fixtures, not a property-testing engine.
+- Full JSON Schema coverage including `pattern`, `allOf`, `oneOf`, `if/then/else` (json-schema-faker). Seedset rejects these with a precise error instead.
+- Validation (Zod and friends). Seedset *consumes* validators through Standard Schema and Zod → JSON Schema.
 - In-memory queryable mock database / MSW handlers (@mswjs/data).
 
-## TestSeed's proposed differentiation (hypotheses, not proven demand)
+## Seedset's proposed differentiation (hypotheses, not proven demand)
 
 1. **Stability by construction.** Every record and every field has its own derived stream, so `generate(10)` is a prefix of `generate(100)` and adding a field does not change the other fields' values. A written, tested reproducibility policy (golden tests).
 2. **Relational generation with checks** — referential integrity, one-to-one / many-to-many / array refs, Zipf skew, cycle detection, impossible-constraint errors.
-3. **Labelled boundary and invalid fixtures** from one schema (TestSeed builder or JSON Schema/Zod), each verified valid/invalid.
+3. **Labelled boundary and invalid fixtures** from one schema (Seedset builder or JSON Schema/Zod), each verified valid/invalid.
 4. **Bounded-memory streaming** with the same records as in-memory generation.
 5. **Zero dependencies, ~18 KB gzipped**, no network, no telemetry.
 
 ## Adoption barriers (realistic)
 
-- Faker + Fishery is the incumbent combination; teams already have fixtures written for it. TestSeed must be adopted *alongside* Faker, not as a replacement.
-- JSON-Schema-only users already have json-schema-faker, which supports more keywords. TestSeed wins only if edge cases / determinism guarantees / relations matter.
+- Faker + Fishery is the incumbent combination; teams already have fixtures written for it. Seedset must be adopted *alongside* Faker, not as a replacement.
+- JSON-Schema-only users already have json-schema-faker, which supports more keywords. Seedset wins only if edge cases / determinism guarantees / relations matter.
 - A new 0.x package with no track record, one maintainer and a name that may collide with another project.
 - The smaller vocabulary yields less "realistic" data than Faker; this is a deliberate trade-off that some users will reject.
 - The edge-case feature is boundary-focused, not exhaustive; users expecting fast-check-style search will be disappointed.
@@ -97,5 +97,5 @@ limited to what each project documents about itself, not user-reported bugs.
 - https://github.com/json-schema-faker/json-schema-faker
 - https://github.com/anatine/zod-plugins/tree/main/packages/zod-mock
 - https://fast-check.dev/docs/core-blocks/arbitraries/
-- https://peerpush.com/p/testseed (name conflict listing)
+- https://peerpush.com/p/seedset (name conflict listing)
 - npm registry (`npm view <pkg>`) on 2026-10-27

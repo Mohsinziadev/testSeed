@@ -3,7 +3,7 @@ description: Something produced wrong, invalid or non-reproducible data
 body:
   - type: input
     id: version
-    attributes: { label: testseed version, description: "Output of `npm ls @mohsinzia/testseed`" }
+    attributes: { label: seedset version, description: "Output of `npm ls seedset`" }
     validations: { required: true }
   - type: input
     id: seed

@@ -2,7 +2,7 @@ import { fileURLToPath } from "node:url";
 import { defineConfig } from "vitest/config";
 
 export default defineConfig({
-  resolve: { alias: { "@mohsinzia/testseed": fileURLToPath(new URL("./src/index.ts", import.meta.url)) } },
+  resolve: { alias: { seedset: fileURLToPath(new URL("./src/index.ts", import.meta.url)) } },
   test: {
     include: ["tests/**/*.test.ts"],
     typecheck: { enabled: true, include: ["tests/types/**/*.test-d.ts"], tsconfig: "./tsconfig.json" },

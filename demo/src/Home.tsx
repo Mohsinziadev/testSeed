@@ -55,13 +55,13 @@ function Install() {
   );
 }
 
-/** A terminal printing what TestSeed really produces for seed 42 (computed at build time). */
+/** A terminal printing what Seedset really produces for seed 42 (computed at build time). */
 function Terminal() {
   return (
     <div
       className="terminal"
       role="img"
-      aria-label="Terminal output of TestSeed with seed 42: three generated users, then labelled edge cases for a signup schema, each marked accept or reject."
+      aria-label="Terminal output of Seedset with seed 42: three generated users, then labelled edge cases for a signup schema, each marked accept or reject."
     >
       <div className="terminal-bar" aria-hidden="true">
         <span />
@@ -203,7 +203,7 @@ export function Home() {
           <div className="hero-copy">
             <p className="eyebrow">
               by <a href={PACKAGES_URL}>M2Toolkit</a> <span className="eyebrow-sep">·</span> v{PKG.version}{' '}
-              <span className="eyebrow-sep">·</span> pre-release
+              <span className="eyebrow-sep">·</span> early release
             </p>
             <h1 className="hero-title">
               Test data you can
@@ -235,7 +235,7 @@ export function Home() {
         <section className="why" aria-labelledby="why-title">
           <div>
             <p className="eyebrow eyebrow-brand">
-              <CheckIcon /> Why TestSeed
+              <CheckIcon /> Why Seedset
             </p>
             <h2 id="why-title" className="section-title">
               A fixture engine,
@@ -253,7 +253,7 @@ export function Home() {
             </p>
             <p>
               Each (record, field) has its own random stream, so adding a field never churns your existing snapshots.
-              Use Faker inside a field function when you need a richer vocabulary; TestSeed handles the structure. Framework-agnostic: plain functions with no adapter, and zero dependencies.
+              Use Faker inside a field function when you need a richer vocabulary; Seedset handles the structure. Framework-agnostic: plain functions with no adapter, and zero dependencies.
             </p>
             <Snippet name="hero" />
           </div>
@@ -280,7 +280,7 @@ export function Home() {
 
         <Playground />
 
-        <section className="stats" aria-label="TestSeed in numbers">
+        <section className="stats" aria-label="Seedset in numbers">
           {STATS.map((s) => (
             <div key={s.label} className="stat">
               <strong>{s.value}</strong>
@@ -298,7 +298,7 @@ export function Home() {
               Where it fits next to the tools you already use.
             </h2>
             <p className="section-lead">
-              Competitors are better at what they target. Use them together, for example Faker values inside a TestSeed
+              Competitors are better at what they target. Use them together, for example Faker values inside a Seedset
               field. Based on the docs reviewed on 2026-10-27; see the{' '}
               <a href={docFile('docs/MARKET-RESEARCH.md')} target="_blank" rel="noreferrer">
                 evidence and gaps
@@ -312,7 +312,7 @@ export function Home() {
                 <tr>
                   <th scope="col">Capability</th>
                   <th scope="col" className="compare-us">
-                    TestSeed
+                    Seedset
                   </th>
                   <th scope="col">Faker</th>
                   <th scope="col">Fishery</th>
@@ -399,7 +399,7 @@ export function Home() {
 
         <section className="cta art">
           <div className="cta-card">
-            <h2>Make your tests repeatable with TestSeed</h2>
+            <h2>Make your tests repeatable with Seedset</h2>
             <p>One seed in, the same data out. Every failure comes with the seed that reproduces it.</p>
             <div className="hero-actions">
               <a className="btn btn-brand" href={docHref('getting-started')}>

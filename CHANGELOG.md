@@ -2,7 +2,7 @@
 
 All notable changes are documented here. Format: [Keep a Changelog](https://keepachangelog.com). Versioning: see "Versioning policy" in the README — **while 0.x, seeded output is stable within a minor version; output-affecting changes bump the minor and are listed under "Reproducibility".**
 
-## [0.1.0] — unreleased
+## [0.1.0] — 2026-10-28
 
 Initial release (`ALGORITHM_VERSION` 1).
 

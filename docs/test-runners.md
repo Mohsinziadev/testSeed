@@ -1,6 +1,6 @@
 # Test Runners
 
-TestSeed is plain functions, so no adapter is needed. Log the seed so failures can be replayed:
+Seedset is plain functions, so no adapter is needed. Log the seed so failures can be replayed:
 
 ```js
 // node:test (tested in examples/node-test) and Vitest (this repo's own tests) work the same way
@@ -16,4 +16,4 @@ Nothing in the library is runner-specific, but **no Jest or Playwright integrati
 
 ## JavaScript
 
-Everything works from plain JS, with ESM `import` or CommonJS `require("@mohsinzia/testseed")`. The packed artifact is tested both ways. Runtime checks (counts, ranges, overrides, schemas) do not rely on TypeScript.
+Everything works from plain JS, with ESM `import` or CommonJS `require("seedset")`. The packed artifact is tested both ways. Runtime checks (counts, ranges, overrides, schemas) do not rely on TypeScript.

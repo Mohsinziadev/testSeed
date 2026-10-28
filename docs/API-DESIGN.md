@@ -3,7 +3,7 @@
 ## Principles
 
 1. **Everything is a pure function of (seed, definition, index).** Record _i_ of a factory never depends on how many records were generated or on other fields. This is what makes failures reproducible and fixtures stable under edits.
-2. **No silent constraint violations.** Anything that cannot be satisfied throws a `TestSeedError` subclass with the path, constraint, seed and a hint. Generated values are re-validated against their schema before being returned.
+2. **No silent constraint violations.** Anything that cannot be satisfied throws a `SeedsetError` subclass with the path, constraint, seed and a hint. Generated values are re-validated against their schema before being returned.
 3. **Compile-time and runtime checking agree.** Overrides are typed (`Partial<Built<F>>`) and, where a field has a schema, validated at runtime.
 4. **Zero dependencies.** Validators are consumed through the structural [Standard Schema](https://standardschema.dev) interface; Zod/Valibot/ArkType schemas can also be exported to JSON Schema and imported.
 
@@ -80,7 +80,7 @@ Categories (`category`, `valid`): `boundary` (valid), `invalid`, `random` (valid
 
 ## Error types
 
-All extend `TestSeedError` (`code`, `seed`, `path`, `constraint`, `hint`, `issues`, `toJSON()`): `ConfigError`, `UnsupportedSchemaError`, `SchemaError`, `GenerationError`, `OverrideError`, `RelationshipError`, `CyclicDependencyError` (`cycle`), `LimitError`. Messages never include generated values; user-code errors are kept as `error.cause`.
+All extend `SeedsetError` (`code`, `seed`, `path`, `constraint`, `hint`, `issues`, `toJSON()`): `ConfigError`, `UnsupportedSchemaError`, `SchemaError`, `GenerationError`, `OverrideError`, `RelationshipError`, `CyclicDependencyError` (`cycle`), `LimitError`. Messages never include generated values; user-code errors are kept as `error.cause`.
 
 ## Not built (and why)
 

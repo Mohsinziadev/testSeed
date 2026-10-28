@@ -1,6 +1,6 @@
-import { createSeed, t } from '@mohsinzia/testseed';
+import { createSeed, t } from 'seedset';
 
-/** What the hero's terminal prints. Computed by testseed while the page is built, never typed by hand. */
+/** What the hero's terminal prints. Computed by seedset while the page is built, never typed by hand. */
 const seed = createSeed({ seed: 42 });
 
 const userFactory = seed.factory(

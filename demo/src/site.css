@@ -1,4 +1,4 @@
-/* TestSeed site. Same page structure as the other M2Toolkit package pages, with its own style: soft cards, rounded surfaces, navy palette. */
+/* Seedset site. Same page structure as the other M2Toolkit package pages, with its own style: soft cards, rounded surfaces, navy palette. */
 
 :root {
   --font-sans: 'Inter Variable', Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
@@ -1721,7 +1721,7 @@ main:focus {
   }
 }
 
-/* ---------------------------------------------------------------- testseed additions */
+/* ---------------------------------------------------------------- seedset additions */
 .t-pass-badge {
   padding: 1px 6px;
   border-radius: 3px;

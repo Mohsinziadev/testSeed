@@ -7,7 +7,7 @@ import { isPlainObject } from "./util.js";
 export interface JsonSchemaOptions {
   /**
    * Accept a `pattern` that accompanies a recognised `format` (email, uuid, uri, date-time),
-   * as emitted by Zod's `z.toJSONSchema`. TestSeed's own values for those formats are generated
+   * as emitted by Zod's `z.toJSONSchema`. Seedset's own values for those formats are generated
    * from a fixed shape; pass the original validator as the factory `validator` to confirm they
    * satisfy the stricter pattern. Default true. A bare `pattern` is always rejected.
    */
@@ -40,7 +40,7 @@ const BY_TYPE: Readonly<Record<string, ReadonlySet<string>>> = {
 };
 const HINTS: Readonly<Record<string, string>> = {
   pattern:
-    "TestSeed does not generate from regular expressions. Remove `pattern`, or build the field with t.string() / a custom factory field.",
+    "Seedset does not generate from regular expressions. Remove `pattern`, or build the field with t.string() / a custom factory field.",
   multipleOf: "multipleOf is not supported. Use an integer range or a custom factory field.",
   allOf: "allOf is not supported. Merge the sub-schemas into one schema.",
   oneOf: "oneOf is not supported because exclusivity cannot be guaranteed. Use anyOf if overlapping options are acceptable.",
@@ -265,7 +265,7 @@ function convert(input: unknown, path: string, ctx: Ctx): Node {
 }
 
 /**
- * Convert a JSON Schema (draft 2019-09 / 2020-12 style, plain object) into a TestSeed schema.
+ * Convert a JSON Schema (draft 2019-09 / 2020-12 style, plain object) into a Seedset schema.
  *
  * Supported: type (incl. type arrays), properties/required, additionalProperties: boolean,
  * items, minItems/maxItems/uniqueItems, minLength/maxLength, minimum/maximum (and integer exclusive

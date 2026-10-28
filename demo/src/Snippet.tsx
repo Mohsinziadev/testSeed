@@ -1,4 +1,4 @@
-import snippets from 'virtual:testseed-snippets';
+import snippets from 'virtual:seedset-snippets';
 
 /** A file from demo/snippets/, highlighted at build time. */
 export const Snippet = ({ name, className }: { name: string; className?: string }) => (

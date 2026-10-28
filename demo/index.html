@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TestSeed: deterministic, schema-aware test data for TypeScript</title>
+    <title>Seedset: deterministic, schema-aware test data for TypeScript</title>
     <meta
       name="description"
       content="Deterministic, schema-aware, relational test data and edge-case fixtures for TypeScript and JavaScript. Reproducible by seed, foreign keys that resolve, zero dependencies."
@@ -15,7 +15,7 @@
     <script>
       // A visitor's own choice (the theme toggle) wins; otherwise follow the system.
       try {
-        var choice = localStorage.getItem('testseed-site:theme');
+        var choice = localStorage.getItem('seedset-site:theme');
         document.documentElement.dataset.theme =
           choice === 'light' || choice === 'dark'
             ? choice

@@ -36,4 +36,4 @@ The factory `name` labels its random stream. Two factories with the same name an
 
 ## A fixture engine, not a Faker replacement
 
-TestSeed ships 173 small synthetic vocabulary entries, not a locale database. Use Faker inside a field function when you need richer values, and let TestSeed handle structure: relations, edge cases, streams and reproducibility.
+Seedset ships 173 small synthetic vocabulary entries, not a locale database. Use Faker inside a field function when you need richer values, and let Seedset handle structure: relations, edge cases, streams and reproducibility.

@@ -1,4 +1,4 @@
-import { createSeed } from "@mohsinzia/testseed";
+import { createSeed } from "seedset";
 
 const seed = createSeed({ seed: "shop" });
 const id = (_g: unknown, c: { sequence: number }) => c.sequence;

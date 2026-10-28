@@ -1,4 +1,4 @@
-import { createSeed, t, validate } from "@mohsinzia/testseed";
+import { createSeed, t, validate } from "seedset";
 
 // The function under test: a hand-written request validator.
 export function isValidSignup(body: unknown): boolean {

@@ -2,7 +2,7 @@ import { generateDataset } from "./datasets/dataset.js";
 import type { DatasetResult, DatasetSpec } from "./datasets/dataset.js";
 import { generateEdgeCases } from "./edge-cases/edge-cases.js";
 import type { EdgeCase, EdgeCaseOptions } from "./edge-cases/edge-cases.js";
-import { ConfigError, TestSeedError } from "./errors.js";
+import { ConfigError, SeedsetError } from "./errors.js";
 import type { Issue } from "./errors.js";
 import { buildRecord, defineFactory, Factory } from "./factories/factory.js";
 import type { AnyFactory, BuildEnv, Built, FactoryOptions, FieldMap, TraitSpec } from "./factories/factory.js";
@@ -263,7 +263,7 @@ export class Seed {
 
   /**
    * Generate `count` records, collecting failures instead of throwing, with everything needed to reproduce the run.
-   * Errors that are not TestSeed errors (bugs) are rethrown.
+   * Errors that are not Seedset errors (bugs) are rethrown.
    */
   generateWithReport<F extends FieldMap, TN extends string>(
     factory: Factory<F, TN>,
@@ -281,7 +281,7 @@ export class Seed {
       try {
         records.push(buildRecord(factory, i, env, overrides, traits) as Built<F>);
       } catch (error) {
-        if (!(error instanceof TestSeedError)) throw error;
+        if (!(error instanceof SeedsetError)) throw error;
         if (failures.length >= MAX_REPORTED_FAILURES) {
           truncated = true;
           break;
@@ -312,7 +312,7 @@ export class Seed {
       records,
       failures,
       failuresTruncated: truncated,
-      reproduce: `createSeed({ seed: ${seedLiteral} }).generate(<factory "${factory.name}">, ${options.count}${traitPart}) // @mohsinzia/testseed@${VERSION}, algorithm v${ALGORITHM_VERSION}`,
+      reproduce: `createSeed({ seed: ${seedLiteral} }).generate(<factory "${factory.name}">, ${options.count}${traitPart}) // seedset@${VERSION}, algorithm v${ALGORITHM_VERSION}`,
     };
   }
 }

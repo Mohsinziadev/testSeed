@@ -13,4 +13,4 @@ Output depends on the JavaScript engine only through `Date` and `toISOString`, w
 
 ## Upgrading
 
-TestSeed follows [SemVer](https://semver.org). While it is 0.x, breaking API changes may land in minor releases. To upgrade, read the [changelog](../CHANGELOG.md), re-run your tests, and refresh any committed snapshots when the changelog lists a "Reproducibility" change. To stay stable, pin an exact version or a `~` range.
+Seedset follows [SemVer](https://semver.org). While it is 0.x, breaking API changes may land in minor releases. To upgrade, read the [changelog](../CHANGELOG.md), re-run your tests, and refresh any committed snapshots when the changelog lists a "Reproducibility" change. To stay stable, pin an exact version or a `~` range.

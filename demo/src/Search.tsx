@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
-import type { SearchEntry } from 'virtual:testseed-docs';
+import type { SearchEntry } from 'virtual:seedset-docs';
 import { loadDocs } from './Docs';
 import { DOC_PAGES } from './docs-nav';
 import { ChevronRight, SearchIcon } from './icons';

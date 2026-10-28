@@ -9,7 +9,7 @@ export const DOC_GROUPS: DocGroup[] = [
   {
     title: 'Introduction',
     items: [
-      { slug: 'getting-started', title: 'Getting Started', blurb: 'Install TestSeed and generate your first records.' },
+      { slug: 'getting-started', title: 'Getting Started', blurb: 'Install Seedset and generate your first records.' },
       { slug: 'concepts', title: 'Core Concepts', blurb: 'Seeds, per-field streams and the prefix guarantee.' },
     ],
   },
@@ -36,7 +36,7 @@ export const DOC_GROUPS: DocGroup[] = [
     title: 'Resources',
     items: [
       { slug: 'comparison', title: 'Comparison', blurb: 'Faker, Fishery, json-schema-faker and more.' },
-      { slug: 'limitations', title: 'Limitations', blurb: 'What TestSeed deliberately does not do.' },
+      { slug: 'limitations', title: 'Limitations', blurb: 'What Seedset deliberately does not do.' },
     ],
   },
 ];

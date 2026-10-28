@@ -28,8 +28,8 @@ function describe(message: string, d: ErrorDetails): string {
   return out;
 }
 
-/** Base class of every error thrown by TestSeed. */
-export class TestSeedError extends Error {
+/** Base class of every error thrown by Seedset. */
+export class SeedsetError extends Error {
   readonly code: ErrorCode;
   readonly seed: string | number | undefined;
   readonly path: string | undefined;
@@ -64,49 +64,49 @@ export class TestSeedError extends Error {
 }
 
 /** Invalid options passed to the public API (bad count, bad range, ...). */
-export class ConfigError extends TestSeedError {
+export class ConfigError extends SeedsetError {
   constructor(message: string, details: ErrorDetails = {}) {
     super("CONFIG", message, details);
   }
 }
 
-/** The schema uses a feature TestSeed deliberately does not support. */
-export class UnsupportedSchemaError extends TestSeedError {
+/** The schema uses a feature Seedset deliberately does not support. */
+export class UnsupportedSchemaError extends SeedsetError {
   constructor(message: string, details: ErrorDetails = {}) {
     super("SCHEMA_UNSUPPORTED", message, details);
   }
 }
 
 /** The schema is self-contradictory (e.g. min > max). */
-export class SchemaError extends TestSeedError {
+export class SchemaError extends SeedsetError {
   constructor(message: string, details: ErrorDetails = {}) {
     super("SCHEMA_INVALID", message, details);
   }
 }
 
 /** A factory or schema could not produce a valid value. */
-export class GenerationError extends TestSeedError {
+export class GenerationError extends SeedsetError {
   constructor(message: string, details: ErrorDetails = {}) {
     super("GENERATION", message, details);
   }
 }
 
 /** A caller-provided override is unknown or violates the field's schema. */
-export class OverrideError extends TestSeedError {
+export class OverrideError extends SeedsetError {
   constructor(message: string, details: ErrorDetails = {}) {
     super("OVERRIDE", message, details);
   }
 }
 
 /** Impossible relational constraint (e.g. one-to-one with more children than parents). */
-export class RelationshipError extends TestSeedError {
+export class RelationshipError extends SeedsetError {
   constructor(message: string, details: ErrorDetails = {}) {
     super("RELATIONSHIP", message, details);
   }
 }
 
 /** Tables depend on each other in a cycle. */
-export class CyclicDependencyError extends TestSeedError {
+export class CyclicDependencyError extends SeedsetError {
   readonly cycle: readonly string[];
   constructor(cycle: readonly string[], details: ErrorDetails = {}) {
     super("CYCLE", `Cyclic dependency between tables: ${cycle.join(" -> ")}`, {
@@ -118,7 +118,7 @@ export class CyclicDependencyError extends TestSeedError {
 }
 
 /** A configured safety limit was exceeded. */
-export class LimitError extends TestSeedError {
+export class LimitError extends SeedsetError {
   constructor(message: string, details: ErrorDetails = {}) {
     super("LIMIT", message, details);
   }

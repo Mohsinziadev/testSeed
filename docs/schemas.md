@@ -1,9 +1,9 @@
 # Schemas
 
-Schemas describe a value so TestSeed can generate it, check it and derive edge cases from it.
+Schemas describe a value so Seedset can generate it, check it and derive edge cases from it.
 
 ```ts
-import { createSeed, t, validate, type Infer } from "@mohsinzia/testseed";
+import { createSeed, t, validate, type Infer } from "seedset";
 
 const signup = t.object({
   username: t.string({ minLength: 3, maxLength: 12 }),
@@ -27,7 +27,7 @@ validate(signup, input); // [{ path, constraint, message }], never echoes the va
 
 ```ts
 import { z } from "zod";
-import { fromJsonSchema } from "@mohsinzia/testseed";
+import { fromJsonSchema } from "seedset";
 
 const User = z.object({ id: z.string().uuid(), age: z.number().int().min(18).max(80) });
 
@@ -50,4 +50,4 @@ These throw `UnsupportedSchemaError`, naming the path and keyword: `pattern` (un
 
 Zod's default JSON Schema export says `additionalProperties: false` although Zod strips (rather than rejects) unknown keys, so an "unknown property" invalid case would be accepted by Zod. Use `{ io: "input" }`, or `.strict()`. This is pinned by a test.
 
-Formatted strings (`email`, `uuid`, `url`, `date-time`) come from TestSeed's fixed shapes. If the original validator's pattern is stricter, pass it as the factory `validator` to confirm.
+Formatted strings (`email`, `uuid`, `url`, `date-time`) come from Seedset's fixed shapes. If the original validator's pattern is stricter, pass it as the factory `validator` to confirm.

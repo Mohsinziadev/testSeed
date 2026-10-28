@@ -41,7 +41,7 @@ export {
   OverrideError,
   RelationshipError,
   SchemaError,
-  TestSeedError,
+  SeedsetError,
   UnsupportedSchemaError,
 } from "./errors.js";
 export type { ErrorCode, Issue } from "./errors.js";

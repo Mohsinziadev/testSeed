@@ -1,4 +1,4 @@
-import { createSeed, t } from "@mohsinzia/testseed";
+import { createSeed, t } from "seedset";
 
 const seed = createSeed({ seed: 42 });
 

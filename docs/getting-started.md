@@ -1,13 +1,13 @@
 # Getting Started
 
-TestSeed generates deterministic, schema-aware, relational test data for TypeScript and JavaScript. The same seed gives the same data on every machine, and it has zero runtime dependencies.
+Seedset generates deterministic, schema-aware, relational test data for TypeScript and JavaScript. The same seed gives the same data on every machine, and it has zero runtime dependencies.
 
-> **Status: 0.1.0, pre-release, not yet published to npm.** The API may change before 1.0.
+> **Status: 0.1.0, early release.** The API may change before 1.0.
 
 ## Install
 
 ```bash
-npm install --save-dev @mohsinzia/testseed
+npm install --save-dev seedset
 ```
 
 Node.js 20 or newer. ESM and CommonJS builds are included, with types.
@@ -15,7 +15,7 @@ Node.js 20 or newer. ESM and CommonJS builds are included, with types.
 ## Your first factory
 
 ```ts
-import { createSeed, t } from "@mohsinzia/testseed";
+import { createSeed, t } from "seedset";
 
 const seed = createSeed({ seed: 42 });
 

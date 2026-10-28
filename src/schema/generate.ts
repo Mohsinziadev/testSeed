@@ -146,7 +146,7 @@ export function generateValue(node: Node, rng: Rng, env: GenEnv, path = ""): unk
       constraint: first?.constraint,
       seed: env.seed,
       issues,
-      hint: "This indicates conflicting constraints or a TestSeed bug. Please open an issue with the schema and seed.",
+      hint: "This indicates conflicting constraints or a Seedset bug. Please open an issue with the schema and seed.",
     });
   }
   return value;

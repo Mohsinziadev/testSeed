@@ -1,8 +1,8 @@
 /**
  * Build-time content for the site, so the browser never ships a markdown parser or highlighter.
  *
- *   virtual:testseed-docs      every page in docs/*.md as highlighted HTML, its outline and a search index
- *   virtual:testseed-snippets  every file in demo/snippets/ as highlighted HTML, keyed by path ("playground/signup")
+ *   virtual:seedset-docs      every page in docs/*.md as highlighted HTML, its outline and a search index
+ *   virtual:seedset-snippets  every file in demo/snippets/ as highlighted HTML, keyed by path ("playground/signup")
  *
  * Snippets are real TypeScript modules: the site imports the same files it displays, and
  * `npm run typecheck:site` checks them against the library.
@@ -11,13 +11,13 @@ import { readdir, readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { Marked } from 'marked';
 import { createHighlighter, type Highlighter } from 'shiki';
-import type { DocHeading, DocPage, SearchEntry } from 'virtual:testseed-docs';
+import type { DocHeading, DocPage, SearchEntry } from 'virtual:seedset-docs';
 import type { Plugin } from 'vite';
 import { DOC_PAGES } from './src/docs-nav.ts';
 import { REPO } from './src/meta.ts';
 
-const DOCS_ID = 'virtual:testseed-docs';
-const SNIPPETS_ID = 'virtual:testseed-snippets';
+const DOCS_ID = 'virtual:seedset-docs';
+const SNIPPETS_ID = 'virtual:seedset-snippets';
 const docsDir = fileURLToPath(new URL('../docs/', import.meta.url));
 const snippetsDir = fileURLToPath(new URL('./snippets/', import.meta.url));
 
@@ -161,7 +161,7 @@ async function snippetFiles(dir: string, prefix = ''): Promise<{ name: string; f
 
 export function content(): Plugin {
   return {
-    name: 'testseed-site-content',
+    name: 'seedset-site-content',
     resolveId(id) {
       if (id === DOCS_ID || id === SNIPPETS_ID) return `\0${id}`;
     },

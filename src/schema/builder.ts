@@ -174,7 +174,7 @@ export const t = {
       const entry = shape[key];
       if (entry instanceof OptionalSchema) return { key, node: entry.inner.node, optional: true };
       if (entry instanceof Schema) return { key, node: entry.node, optional: false };
-      throw new SchemaError(`Property "${key}" is not a TestSeed schema`, { path: key });
+      throw new SchemaError(`Property "${key}" is not a Seedset schema`, { path: key });
     });
     return new Schema({ kind: "object", props, strict: options.strict ?? false });
   },

@@ -1,15 +1,15 @@
 import { useEffect, useLayoutEffect, useState } from 'react';
-import type { DocHeading } from 'virtual:testseed-docs';
+import type { DocHeading } from 'virtual:seedset-docs';
 import { DOC_GROUPS, DOC_PAGES } from './docs-nav';
 import { ChevronDown, ChevronRight, EditIcon, MenuIcon, OutlineIcon } from './icons';
 import { editUrl } from './meta';
 import { docHref } from './router';
 
-type DocsModule = typeof import('virtual:testseed-docs');
+type DocsModule = typeof import('virtual:seedset-docs');
 
 // The rendered docs are one lazy chunk, shared with search; the landing page never loads it.
 let loaded: DocsModule | null = null;
-export const loadDocs = () => import('virtual:testseed-docs').then((m) => (loaded = m));
+export const loadDocs = () => import('virtual:seedset-docs').then((m) => (loaded = m));
 
 const homeTitle = typeof document === 'undefined' ? '' : document.title;
 
@@ -54,7 +54,7 @@ export function Docs({ slug, anchor }: { slug: string; anchor: string | undefine
   const next = known ? DOC_PAGES[index + 1] : undefined;
 
   useEffect(() => {
-    document.title = page ? `${page.title} | TestSeed` : homeTitle;
+    document.title = page ? `${page.title} | Seedset` : homeTitle;
     return () => {
       document.title = homeTitle;
     };

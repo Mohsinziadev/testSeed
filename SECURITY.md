@@ -4,9 +4,9 @@
 
 Please do **not** open a public issue. Use GitHub's private vulnerability reporting ("Security" tab → "Report a vulnerability") on this repository. Expect an acknowledgement within 7 days. _(Maintainer: enable private vulnerability reporting and confirm this contact path before the first release.)_
 
-## What TestSeed is not
+## What Seedset is not
 
-TestSeed uses an ordinary seeded PRNG (SFC32). **It must not be used to generate passwords, tokens, API keys, session ids or any security-sensitive value.** `uuid()` is reproducible by design.
+Seedset uses an ordinary seeded PRNG (SFC32). **It must not be used to generate passwords, tokens, API keys, session ids or any security-sensitive value.** `uuid()` is reproducible by design.
 Synthetic data is not automatically anonymous, compliant or suitable for every privacy-sensitive workflow; it is invented data, not a de-identification tool.
 
 ## Built-in safeguards

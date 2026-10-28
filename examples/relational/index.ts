@@ -1,4 +1,4 @@
-import { createSeed } from "@mohsinzia/testseed";
+import { createSeed } from "seedset";
 
 export function run() {
   const seed = createSeed({ seed: "shop" });

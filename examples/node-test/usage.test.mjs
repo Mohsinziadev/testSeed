@@ -1,7 +1,7 @@
 // Plain node:test usage against the BUILT package: `npm run build && node --test examples/node-test`
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { createSeed } from "@mohsinzia/testseed";
+import { createSeed } from "seedset";
 
 // Log the seed so a failing run can be replayed: SEED=1234 node --test examples/node-test
 const seed = createSeed(process.env.SEED === undefined ? {} : { seed: Number(process.env.SEED) });

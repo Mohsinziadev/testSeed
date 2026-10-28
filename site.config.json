@@ -1,10 +1,10 @@
 {
-  "slug": "testseed",
-  "url": "https://www.m2toolkit.com/npm-packages/testseed",
+  "slug": "seedset",
+  "url": "https://www.m2toolkit.com/npm-packages/seedset",
   "siteName": "M2Toolkit",
   "ogImage": "https://www.m2toolkit.com/opengraph-image",
   "accent": "#1f4e8c",
-  "title": "TestSeed",
+  "title": "Seedset",
   "tagline": "Deterministic, schema-aware, relational test data and edge cases.",
   "runtimePlatform": "JavaScript",
   "highlights": [

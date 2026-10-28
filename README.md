@@ -1,16 +1,16 @@
-# TestSeed
+# Seedset
 
 Deterministic, schema-aware, relational test data and edge-case fixtures for TypeScript and JavaScript. Zero runtime dependencies (~18 KB gzipped).
 
-> **Status: 0.1.0, pre-release, not yet published.** The API may change before 1.0. See [Versioning policy](#versioning-policy).
+> **Status: 0.1.0, early release.** The API may change before 1.0. See [Versioning policy](#versioning-policy).
 
-**Live preview and playground: [m2toolkit.com/npm-packages/testseed](https://www.m2toolkit.com/npm-packages/testseed)**
+**Live preview and playground: [m2toolkit.com/npm-packages/seedset](https://www.m2toolkit.com/npm-packages/seedset)**
 
-TestSeed is a _fixture engine_, not a replacement for [Faker](https://fakerjs.dev): it ships 173 small synthetic vocabulary entries, not a locale database. Use Faker inside a field function when you need richer values.
+Seedset is a _fixture engine_, not a replacement for [Faker](https://fakerjs.dev): it ships 173 small synthetic vocabulary entries, not a locale database. Use Faker inside a field function when you need richer values.
 
 ## Problems it targets
 
-| You need to…                                                      | TestSeed                                                                                               |
+| You need to…                                                      | Seedset                                                                                                |
 | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
 | Reproduce a failing test exactly                                  | Every error and report carries the seed; unseeded runs pick a random seed and expose it (`seed.seed`). |
 | Add a field to a factory without churning every existing snapshot | Each (record, field) has its own random stream, so other fields keep their values.                     |
@@ -24,7 +24,7 @@ TestSeed is a _fixture engine_, not a replacement for [Faker](https://fakerjs.de
 ## Install
 
 ```bash
-npm install --save-dev @mohsinzia/testseed     # not yet published — see RELEASING.md
+npm install --save-dev seedset
 ```
 
 Node ≥ 20. ESM and CommonJS. Types included.
@@ -32,7 +32,7 @@ Node ≥ 20. ESM and CommonJS. Types included.
 ## 60-second example
 
 ```ts
-import { createSeed, t } from "@mohsinzia/testseed";
+import { createSeed, t } from "seedset";
 
 const seed = createSeed({ seed: 42 });
 
@@ -99,7 +99,7 @@ Tested with **Zod 4.6** only. Other validators work if they implement the synchr
 
 **Zod caveat:** Zod's default JSON Schema export says `additionalProperties: false` although Zod strips (not rejects) unknown keys, so an "unknown property" invalid case would be accepted by Zod. Use `{ io: "input" }` (or `.strict()`). This is pinned by a test.
 
-Formatted strings (`email`, `uuid`, `url`, `date-time`) come from TestSeed's fixed shapes. If the original validator's pattern is stricter, pass it as the factory `validator` to confirm.
+Formatted strings (`email`, `uuid`, `url`, `date-time`) come from Seedset's fixed shapes. If the original validator's pattern is stricter, pass it as the factory `validator` to confirm.
 
 ## Relational datasets
 
@@ -156,7 +156,7 @@ Streams produce exactly the records `generate()` would. Memory stays flat (500k 
 try {
   seed.build(userFactory, { age: 5 });
 } catch (e) {
-  if (e instanceof TestSeedError) console.error(e.message, e.path, e.constraint, e.seed, e.hint);
+  if (e instanceof SeedsetError) console.error(e.message, e.path, e.constraint, e.seed, e.hint);
 }
 // OverrideError: Override for "age" violates the field's schema: value is below minimum 18 (path: age, constraint: min, seed: 42)
 ```
@@ -168,7 +168,7 @@ report.failures;
 report.reproduce; // seed, factory name, algorithm/package version, traits, override *names*, limits
 ```
 
-Error classes: `ConfigError`, `UnsupportedSchemaError`, `SchemaError`, `GenerationError`, `OverrideError`, `RelationshipError`, `CyclicDependencyError`, `LimitError`; all extend `TestSeedError` and have `toJSON()`.
+Error classes: `ConfigError`, `UnsupportedSchemaError`, `SchemaError`, `GenerationError`, `OverrideError`, `RelationshipError`, `CyclicDependencyError`, `LimitError`; all extend `SeedsetError` and have `toJSON()`.
 
 ## Using it in test runners
 
@@ -184,7 +184,7 @@ Jest and Playwright fixtures: nothing in the library is runner-specific, but **n
 
 ## JavaScript
 
-Everything works from plain JS (ESM `import` or CommonJS `require("@mohsinzia/testseed")`); the packed artifact is tested both ways. Runtime checks (counts, ranges, overrides, schemas) do not rely on TypeScript.
+Everything works from plain JS (ESM `import` or CommonJS `require("seedset")`); the packed artifact is tested both ways. Runtime checks (counts, ranges, overrides, schemas) do not rely on TypeScript.
 
 ## API reference (summary)
 
@@ -204,11 +204,11 @@ Full semantics: [docs/API-DESIGN.md](docs/API-DESIGN.md).
 
 ## Performance
 
-One machine, one session (Node 22, Apple M4): 100,000 flat users in ~231 ms vs ~386 ms for an equivalent seeded Faker loop and ~434 ms for Fishery + Faker; 10,000 schema-generated objects in ~55 ms (including verification) vs ~105 ms for json-schema-faker; cold import ~3 ms vs ~54 ms for Faker. TestSeed does less work per value (small vocabulary) — see the caveats in [docs/BENCHMARKS.md](docs/BENCHMARKS.md) before quoting these numbers.
+One machine, one session (Node 22, Apple M4): 100,000 flat users in ~231 ms vs ~386 ms for an equivalent seeded Faker loop and ~434 ms for Fishery + Faker; 10,000 schema-generated objects in ~55 ms (including verification) vs ~105 ms for json-schema-faker; cold import ~3 ms vs ~54 ms for Faker. Seedset does less work per value (small vocabulary) — see the caveats in [docs/BENCHMARKS.md](docs/BENCHMARKS.md) before quoting these numbers.
 
 ## Comparison with alternatives
 
-|                                                         | TestSeed                     | Faker                | Fishery           | json-schema-faker    | @anatine/zod-mock               |
+|                                                         | Seedset                      | Faker                | Fishery           | json-schema-faker    | @anatine/zod-mock               |
 | ------------------------------------------------------- | ---------------------------- | -------------------- | ----------------- | -------------------- | ------------------------------- |
 | Large multi-locale value library                        | no (173 entries)             | **yes**              | no                | optional via Faker   | via Faker                       |
 | Typed factories                                         | yes                          | no                   | **yes**           | no                   | no                              |
@@ -222,7 +222,7 @@ One machine, one session (Node 22, Apple M4): 100,000 flat users in ~231 ms vs ~
 | Zod                                                     | via JSON Schema (4.x tested) | –                    | –                 | via JSON Schema      | direct (some types unsupported) |
 | Runtime dependencies                                    | 0                            | 0                    | 0                 | 0                    | Faker (peer)                    |
 
-"not found" / "no" reflect the docs reviewed on 2026-10-27, not exhaustive code audits; see [docs/MARKET-RESEARCH.md](docs/MARKET-RESEARCH.md) for evidence and gaps. Competitors are better than TestSeed at what they target — use them together where it makes sense (e.g. Faker values inside a TestSeed field).
+"not found" / "no" reflect the docs reviewed on 2026-10-27, not exhaustive code audits; see [docs/MARKET-RESEARCH.md](docs/MARKET-RESEARCH.md) for evidence and gaps. Competitors are better than Seedset at what they target — use them together where it makes sense (e.g. Faker values inside a Seedset field).
 
 ## Supported runtimes
 

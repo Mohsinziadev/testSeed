@@ -2,7 +2,7 @@ import { useSyncExternalStore } from 'react';
 import { DEFAULT_DOC } from './docs-nav';
 
 /**
- * Hash routes, so the whole site stays one static page (m2toolkit serves /npm-packages/testseed):
+ * Hash routes, so the whole site stays one static page (m2toolkit serves /npm-packages/seedset):
  *   #/docs/<slug>[/<heading-id>]   a documentation page
  *   #<id> or nothing               the landing page, scrolled to that section
  */

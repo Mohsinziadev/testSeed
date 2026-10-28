@@ -10,7 +10,7 @@ export default defineConfig({
   root: r('.'),
   base: './',
   plugins: [react(), content()],
-  resolve: { alias: [{ find: /^@mohsinzia\/testseed$/, replacement: r('../src/index.ts') }] },
+  resolve: { alias: [{ find: /^@mohsinzia\/seedset$/, replacement: r('../src/index.ts') }] },
   server: { fs: { allow: [r('..')] } },
   build: { outDir: r('dist'), emptyOutDir: true },
 });

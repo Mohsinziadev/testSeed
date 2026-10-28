@@ -1,4 +1,4 @@
-import { ConfigError, GenerationError, OverrideError, TestSeedError } from "../errors.js";
+import { ConfigError, GenerationError, OverrideError, SeedsetError } from "../errors.js";
 import type { Issue } from "../errors.js";
 import { Gen } from "../generators/gen.js";
 import type { Rng } from "../random/rng.js";
@@ -158,7 +158,7 @@ function evalField(key: string, spec: unknown, rng: Rng, index: number, env: Bui
   try {
     return (spec as FieldFn<unknown>)(new Gen(rng), { index, sequence: index + 1, field: key, seed: env.seed });
   } catch (error) {
-    if (error instanceof TestSeedError) {
+    if (error instanceof SeedsetError) {
       throw new GenerationError(`Field "${key}" failed: ${error.message}`, {
         path: key,
         constraint: error.constraint,

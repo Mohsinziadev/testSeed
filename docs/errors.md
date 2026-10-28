@@ -2,7 +2,7 @@
 
 ## Error classes
 
-All extend `TestSeedError` and have `toJSON()`:
+All extend `SeedsetError` and have `toJSON()`:
 
 | Class                    | Raised when                                                 |
 | ------------------------ | ----------------------------------------------------------- |
@@ -21,7 +21,7 @@ Each carries `code`, `seed`, `path`, `constraint`, `hint` and `issues`. Messages
 try {
   seed.build(userFactory, { age: 5 });
 } catch (e) {
-  if (e instanceof TestSeedError) console.error(e.message, e.path, e.constraint, e.seed, e.hint);
+  if (e instanceof SeedsetError) console.error(e.message, e.path, e.constraint, e.seed, e.hint);
 }
 // OverrideError: Override for "age" violates the field's schema: value is below minimum 18 (path: age, constraint: min, seed: 42)
 ```

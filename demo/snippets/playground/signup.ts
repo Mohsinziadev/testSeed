@@ -1,4 +1,4 @@
-import { t } from "@mohsinzia/testseed";
+import { t } from "seedset";
 
 /** Boundary and invalid inputs for this schema, each one verified valid or invalid. */
 export const signup = t.object({

@@ -234,7 +234,7 @@ describe("fromJsonSchema", () => {
   });
 });
 
-describe("Zod interop (Zod -> JSON Schema -> TestSeed, validated by Zod itself)", () => {
+describe("Zod interop (Zod -> JSON Schema -> Seedset, validated by Zod itself)", () => {
   const zUser = z.object({
     id: z.string().uuid(),
     email: z.string().email(),

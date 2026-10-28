@@ -48,7 +48,7 @@ const fishUser = Factory.define(({ sequence }) => ({
 for (const n of [1_000, 10_000, 100_000]) {
   report(
     "flat user",
-    "testseed",
+    "seedset",
     n,
     time(() => seed.generate(tsUser, n)),
   );
@@ -92,7 +92,7 @@ const tsNested = seed.factory({
 });
 report(
   "nested user (address + tags)",
-  "testseed",
+  "seedset",
   10_000,
   time(() => seed.generate(tsNested, 10_000)),
 );
@@ -137,7 +137,7 @@ const { fromJsonSchema } = await import("../dist/index.js");
 const tsSchema = fromJsonSchema(jsonSchema);
 report(
   "JSON Schema (5 props)",
-  "testseed (generate + self-verify)",
+  "seedset (generate + self-verify)",
   10_000,
   time(() => seed.generate(tsSchema, 10_000)),
 );
@@ -153,13 +153,13 @@ report(
   }),
 );
 
-// ---- Scenario 4: relational dataset (testseed only; competitors have no equivalent) -----
+// ---- Scenario 4: relational dataset (seedset only; competitors have no equivalent) -----
 const u = seed.factory({ id: (_g, c) => c.sequence, name: (g) => g.person.fullName() }, { name: "u" });
 const o = seed.factory({ id: (_g, c) => c.sequence, total: (g) => g.number.int({ min: 1, max: 500 }) }, { name: "o" });
 const it = seed.factory({ id: (_g, c) => c.sequence, qty: (g) => g.number.int({ min: 1, max: 5 }) }, { name: "i" });
 report(
   "relational 1k users / 5k orders / 20k items",
-  "testseed dataset()",
+  "seedset dataset()",
   26_000,
   time(() =>
     seed.dataset({
@@ -229,7 +229,7 @@ function coldStart(spec, expr) {
 }
 console.log("Cold import time (fresh process, median of 7):");
 console.table([
-  coldStart("testseed", `await import("./dist/index.js")`),
+  coldStart("seedset", `await import("./dist/index.js")`),
   coldStart("@faker-js/faker (fakerEN)", `await import("@faker-js/faker").then(m=>m.fakerEN)`),
   coldStart("fishery", `await import("fishery")`),
   coldStart("json-schema-faker", `await import("json-schema-faker")`),

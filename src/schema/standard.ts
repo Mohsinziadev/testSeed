@@ -3,7 +3,7 @@ import type { Issue } from "../errors.js";
 
 /**
  * Minimal structural type of the Standard Schema interface (https://standardschema.dev),
- * implemented by Zod, Valibot, ArkType and others. Declared locally so TestSeed has no dependency on it.
+ * implemented by Zod, Valibot, ArkType and others. Declared locally so Seedset has no dependency on it.
  */
 export interface StandardSchemaV1 {
   readonly "~standard": {
@@ -40,7 +40,7 @@ export function runStandardValidator(validator: StandardSchemaV1, value: unknown
   const result = validator["~standard"].validate(value);
   if (result instanceof Promise) {
     result.catch(() => undefined);
-    throw new ConfigError("Async validators are not supported: TestSeed generation is synchronous.", {
+    throw new ConfigError("Async validators are not supported: Seedset generation is synchronous.", {
       hint: "Use a synchronous schema, or validate the generated data yourself after generation.",
     });
   }

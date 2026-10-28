@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { createSeed } from '@mohsinzia/testseed';
+import { createSeed } from 'seedset';
 import { shop } from '../snippets/playground/shop';
 import { signup } from '../snippets/playground/signup';
 import { users } from '../snippets/playground/users';
@@ -90,7 +90,7 @@ export function Playground() {
           Try it live. Change the seed, watch the data.
         </h2>
         <p className="section-lead">
-          Every result below is generated in your browser by the same TestSeed source this page documents. Nothing is
+          Every result below is generated in your browser by the same Seedset source this page documents. Nothing is
           mocked.
         </p>
       </div>
