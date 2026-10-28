@@ -5,3 +5,6 @@ coverage
 .DS_Store
 package-lock.json
 docs/MARKET-RESEARCH.md
+site-dist
+demo
+site.config.json

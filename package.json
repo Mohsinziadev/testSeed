@@ -16,6 +16,15 @@
     "typescript"
   ],
   "license": "MIT",
+  "author": "Mohsin Zia <mohsinziadev@gmail.com>",
+  "homepage": "https://www.m2toolkit.com/npm-packages/testseed",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mohsinziadev/testSeed.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Mohsinziadev/testSeed/issues"
+  },
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -56,21 +65,34 @@
     "check:package": "publint && attw --pack . --profile node16",
     "check": "npm run typecheck && npm run lint && npm run format:check && npm test && npm run build && npm run test:package",
     "prepublishOnly": "npm run check",
-    "test:examples": "npm run build && node --test \"examples/node-test/*.test.mjs\""
+    "test:examples": "npm run build && node --test \"examples/node-test/*.test.mjs\"",
+    "build:site": "node scripts/build-site.mjs",
+    "typecheck:site": "tsc -p demo/tsconfig.json"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.18.5",
     "@faker-js/faker": "^10.6.0",
+    "@fontsource/ibm-plex-mono": "^5.3.0",
+    "@fontsource/ibm-plex-sans": "^5.3.0",
+    "@fontsource/source-serif-4": "^5.3.1",
     "@types/node": "^22.20.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
     "eslint": "^10.13.0",
     "fast-check": "^4.10.2",
     "fishery": "^2.4.0",
     "json-schema-faker": "^0.6.3",
+    "marked": "^18.1.2",
     "prettier": "^3.9.10",
     "publint": "^0.3.25",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "shiki": "^4.5.0",
     "tsup": "^9.0.0",
     "typescript": "~6.0",
     "typescript-eslint": "^8.72.1",
+    "vite": "^8.3.5",
     "vitest": "^5.0.5",
     "zod": "^4.6.7"
   }

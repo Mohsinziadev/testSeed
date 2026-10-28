@@ -1,7 +1,7 @@
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
-  { ignores: ["dist", "node_modules", "examples/**/node_modules", "coverage"] },
+  { ignores: ["dist", "site-dist", "demo", "node_modules", "examples/**/node_modules", "coverage"] },
   ...tseslint.configs.strict,
   {
     // Tests index into results they have just asserted to exist; `!` keeps them readable.

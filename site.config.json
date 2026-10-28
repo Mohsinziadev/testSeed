@@ -1,0 +1,21 @@
+{
+  "slug": "testseed",
+  "url": "https://www.m2toolkit.com/npm-packages/testseed",
+  "siteName": "M2Toolkit",
+  "ogImage": "https://www.m2toolkit.com/opengraph-image",
+  "accent": "#1f4e8c",
+  "title": "TestSeed",
+  "tagline": "Deterministic, schema-aware, relational test data and edge cases.",
+  "runtimePlatform": "JavaScript",
+  "highlights": [
+    "Same seed, same data: replay any failing test exactly",
+    "Users → orders → items with foreign keys that always resolve",
+    "Labelled boundary and invalid inputs generated from a schema",
+    "Zero dependencies, typed factories, streams millions of rows"
+  ],
+  "build": {
+    "root": "demo",
+    "viteConfig": "demo/vite.config.ts",
+    "serverEntry": "demo/entry-server.tsx"
+  }
+}

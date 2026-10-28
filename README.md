@@ -4,6 +4,8 @@ Deterministic, schema-aware, relational test data and edge-case fixtures for Typ
 
 > **Status: 0.1.0, pre-release, not yet published.** The API may change before 1.0. See [Versioning policy](#versioning-policy).
 
+**Live preview and playground: [m2toolkit.com/npm-packages/testseed](https://www.m2toolkit.com/npm-packages/testseed)**
+
 TestSeed is a _fixture engine_, not a replacement for [Faker](https://fakerjs.dev): it ships 173 small synthetic vocabulary entries, not a locale database. Use Faker inside a field function when you need richer values.
 
 ## Problems it targets
