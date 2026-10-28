@@ -3,7 +3,7 @@
 Schemas describe a value so TestSeed can generate it, check it and derive edge cases from it.
 
 ```ts
-import { createSeed, t, validate, type Infer } from "testseed";
+import { createSeed, t, validate, type Infer } from "@mohsinzia/testseed";
 
 const signup = t.object({
   username: t.string({ minLength: 3, maxLength: 12 }),
@@ -27,7 +27,7 @@ validate(signup, input); // [{ path, constraint, message }], never echoes the va
 
 ```ts
 import { z } from "zod";
-import { fromJsonSchema } from "testseed";
+import { fromJsonSchema } from "@mohsinzia/testseed";
 
 const User = z.object({ id: z.string().uuid(), age: z.number().int().min(18).max(80) });
 

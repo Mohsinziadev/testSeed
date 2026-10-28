@@ -1,5 +1,5 @@
 {
-  "name": "testseed",
+  "name": "@mohsinzia/testseed",
   "version": "0.1.0",
   "description": "Deterministic, schema-aware, relational test data and edge cases for TypeScript and JavaScript. Zero runtime dependencies.",
   "keywords": [
@@ -49,6 +49,9 @@
     "CHANGELOG.md"
   ],
   "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "engines": {
     "node": ">=20"
   },

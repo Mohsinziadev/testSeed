@@ -16,7 +16,7 @@
     "resolveJsonModule": true,
     "types": ["vite/client", "node"],
     "paths": {
-      "testseed": ["../src/index.ts"]
+      "@mohsinzia/testseed": ["../src/index.ts"]
     }
   },
   "include": ["src", "snippets", "entry-server.tsx", "vite.config.ts", "content-plugin.ts"]

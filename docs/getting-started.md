@@ -7,7 +7,7 @@ TestSeed generates deterministic, schema-aware, relational test data for TypeScr
 ## Install
 
 ```bash
-npm install --save-dev testseed
+npm install --save-dev @mohsinzia/testseed
 ```
 
 Node.js 20 or newer. ESM and CommonJS builds are included, with types.
@@ -15,7 +15,7 @@ Node.js 20 or newer. ESM and CommonJS builds are included, with types.
 ## Your first factory
 
 ```ts
-import { createSeed, t } from "testseed";
+import { createSeed, t } from "@mohsinzia/testseed";
 
 const seed = createSeed({ seed: 42 });
 

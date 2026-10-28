@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { createSeed } from 'testseed';
+import { createSeed } from '@mohsinzia/testseed';
 import { shop } from '../snippets/playground/shop';
 import { signup } from '../snippets/playground/signup';
 import { users } from '../snippets/playground/users';

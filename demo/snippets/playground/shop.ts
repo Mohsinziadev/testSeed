@@ -1,4 +1,4 @@
-import type { Seed } from "testseed";
+import type { Seed } from "@mohsinzia/testseed";
 
 /** Users, orders and items with foreign keys that always resolve. */
 export function shop(seed: Seed, orders: number) {

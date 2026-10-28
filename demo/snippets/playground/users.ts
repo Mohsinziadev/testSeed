@@ -1,4 +1,4 @@
-import { t, type Seed } from "testseed";
+import { t, type Seed } from "@mohsinzia/testseed";
 
 /** Ten reproducible users. Change the seed and the whole set changes; keep it and nothing does. */
 export function users(seed: Seed, count: number) {

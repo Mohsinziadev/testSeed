@@ -17,7 +17,7 @@
     "noEmit": true,
     "types": ["node"],
     "paths": {
-      "testseed": ["./src/index.ts"]
+      "@mohsinzia/testseed": ["./src/index.ts"]
     }
   },
   "include": ["src", "tests", "benchmarks", "examples", "scripts/*.ts"]

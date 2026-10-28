@@ -1,4 +1,4 @@
-import { TestSeedError, createSeed, t } from "testseed";
+import { TestSeedError, createSeed, t } from "@mohsinzia/testseed";
 
 const seed = createSeed({ seed: 42 });
 const userFactory = seed.factory({ age: t.int({ min: 18, max: 80 }) }, { name: "user" });

@@ -1,4 +1,4 @@
-import { createSeed } from "testseed";
+import { createSeed } from "@mohsinzia/testseed";
 
 const a = createSeed({ seed: "checkout" });
 const b = createSeed({ seed: "checkout" });

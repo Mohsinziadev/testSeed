@@ -24,7 +24,7 @@ TestSeed is a _fixture engine_, not a replacement for [Faker](https://fakerjs.de
 ## Install
 
 ```bash
-npm install --save-dev testseed     # not yet published — see RELEASING.md
+npm install --save-dev @mohsinzia/testseed     # not yet published — see RELEASING.md
 ```
 
 Node ≥ 20. ESM and CommonJS. Types included.
@@ -32,7 +32,7 @@ Node ≥ 20. ESM and CommonJS. Types included.
 ## 60-second example
 
 ```ts
-import { createSeed, t } from "testseed";
+import { createSeed, t } from "@mohsinzia/testseed";
 
 const seed = createSeed({ seed: 42 });
 
@@ -184,7 +184,7 @@ Jest and Playwright fixtures: nothing in the library is runner-specific, but **n
 
 ## JavaScript
 
-Everything works from plain JS (ESM `import` or CommonJS `require("testseed")`); the packed artifact is tested both ways. Runtime checks (counts, ranges, overrides, schemas) do not rely on TypeScript.
+Everything works from plain JS (ESM `import` or CommonJS `require("@mohsinzia/testseed")`); the packed artifact is tested both ways. Runtime checks (counts, ranges, overrides, schemas) do not rely on TypeScript.
 
 ## API reference (summary)
 

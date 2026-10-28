@@ -1,4 +1,4 @@
-import { createSeed } from "testseed";
+import { createSeed } from "@mohsinzia/testseed";
 
 const seed = createSeed({ seed: "load-test" });
 const userFactory = seed.factory({ id: (_g, c) => c.sequence, name: (g) => g.person.fullName() }, { name: "user" });

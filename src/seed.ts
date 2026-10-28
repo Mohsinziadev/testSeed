@@ -312,7 +312,7 @@ export class Seed {
       records,
       failures,
       failuresTruncated: truncated,
-      reproduce: `createSeed({ seed: ${seedLiteral} }).generate(<factory "${factory.name}">, ${options.count}${traitPart}) // testseed@${VERSION}, algorithm v${ALGORITHM_VERSION}`,
+      reproduce: `createSeed({ seed: ${seedLiteral} }).generate(<factory "${factory.name}">, ${options.count}${traitPart}) // @mohsinzia/testseed@${VERSION}, algorithm v${ALGORITHM_VERSION}`,
     };
   }
 }

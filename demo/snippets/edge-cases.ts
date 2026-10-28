@@ -1,4 +1,4 @@
-import { createSeed, t } from "testseed";
+import { createSeed, t } from "@mohsinzia/testseed";
 
 const seed = createSeed({ seed: 7 });
 const signup = t.object({

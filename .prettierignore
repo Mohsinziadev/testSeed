@@ -8,3 +8,4 @@ docs/MARKET-RESEARCH.md
 site-dist
 demo
 site.config.json
+scripts/build-site.mjs

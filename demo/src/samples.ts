@@ -1,4 +1,4 @@
-import { createSeed, t } from 'testseed';
+import { createSeed, t } from '@mohsinzia/testseed';
 
 /** What the hero's terminal prints. Computed by testseed while the page is built, never typed by hand. */
 const seed = createSeed({ seed: 42 });

@@ -36,7 +36,7 @@ try {
   mkdirSync(proj);
   writeFileSync(join(proj, "package.json"), JSON.stringify({ name: "consumer", private: true, type: "module" }));
   run("npm", ["install", "--no-audit", "--no-fund", join(work, info.filename), "typescript@~6.0", "@types/node@22", "zod"], proj);
-  const installed = JSON.parse(readFileSync(join(proj, "node_modules/testseed/package.json"), "utf8"));
+  const installed = JSON.parse(readFileSync(join(proj, "node_modules/@mohsinzia/testseed/package.json"), "utf8"));
   check("zero runtime dependencies", Object.keys(installed.dependencies ?? {}).length === 0);
   check("no peer dependencies required", Object.keys(installed.peerDependencies ?? {}).length === 0);
 
@@ -58,7 +58,7 @@ try {
   `;
   writeFileSync(
     join(proj, "esm.mjs"),
-    `import { createSeed, t, fromJsonSchema, validate, VERSION } from "testseed";\nimport { z } from "zod";\n${program}`,
+    `import { createSeed, t, fromJsonSchema, validate, VERSION } from "@mohsinzia/testseed";\nimport { z } from "zod";\n${program}`,
   );
   const esmOut = run("node", ["esm.mjs"], proj).trim();
   check("ESM import works", esmOut.startsWith("{"), esmOut);
@@ -66,7 +66,7 @@ try {
   // 4. CommonJS consumer.
   writeFileSync(
     join(proj, "cjs.cjs"),
-    `const { createSeed, t, fromJsonSchema, validate, VERSION } = require("testseed");\nconst { z } = require("zod");\n${program}`,
+    `const { createSeed, t, fromJsonSchema, validate, VERSION } = require("@mohsinzia/testseed");\nconst { z } = require("zod");\n${program}`,
   );
   const cjsOut = run("node", ["cjs.cjs"], proj).trim();
   check("CommonJS require works", cjsOut === esmOut, `${cjsOut} vs ${esmOut}`);
@@ -74,7 +74,7 @@ try {
 
   // 5. Exports map: package.json subpath allowed, internals not reachable.
   try {
-    run("node", ["-e", "import('testseed/dist/index.js').then(()=>process.exit(0),()=>process.exit(3))"], proj);
+    run("node", ["-e", "import('@mohsinzia/testseed/dist/index.js').then(()=>process.exit(0),()=>process.exit(3))"], proj);
     check("deep imports are blocked by the exports map", false);
   } catch {
     check("deep imports are blocked by the exports map", true);
@@ -86,8 +86,8 @@ try {
     include: ["*.ts"],
   });
   const tsSource = `
-    import { createSeed, t } from "testseed";
-    import type { Infer, EdgeCase } from "testseed";
+    import { createSeed, t } from "@mohsinzia/testseed";
+    import type { Infer, EdgeCase } from "@mohsinzia/testseed";
     const seed = createSeed({ seed: 1 });
     const f = seed.factory({ id: (_g, c) => c.sequence, name: (g) => g.person.fullName() }, { traits: { vip: { name: "VIP" } } });
     const u: { id: number; name: string } = seed.build(f, { name: "x" }, { traits: ["vip"] });

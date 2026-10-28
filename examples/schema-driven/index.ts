@@ -1,4 +1,4 @@
-import { fromJsonSchema, createSeed } from "testseed";
+import { fromJsonSchema, createSeed } from "@mohsinzia/testseed";
 import { z } from "zod";
 
 const User = z.object({
